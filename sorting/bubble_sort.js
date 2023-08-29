@@ -6,7 +6,9 @@ document.getElementById('bubble-sort').addEventListener('click',async ()=>{
     enableButton();
 });
 async function bubbleSort(ele){
+    let swapped ;
     for(let i = 0; i < x; i++){
+        swapped = false;
         for (let j = 0; j < x - i - 1; j++) {
             let h1 = parseInt(ele[j].style.height)
             let h2 = parseInt(ele[j+1].style.height)
@@ -19,8 +21,13 @@ async function bubbleSort(ele){
             else{
                 ele[j].style.backgroundColor = 'aqua';
                 swap(ele, j, j+1); 
+                swapped = true;
             }
         }
         ele[x - i - 1].style.backgroundColor = 'green';
+        if(swapped === false)   break;
+    }
+    for(let i = 0; i < x; i++){
+        ele[i].style.backgroundColor = 'green';
     }
 }
